@@ -1,0 +1,50 @@
+$test_query = "select * from inventory where item_name LIKE '%".$_GET[$searchstring]."%'";
+$result = mysqli_query( $link, $test_query);
+
+echo '<table border="2">';
+
+echo"<tr><th>Code</th><th>Image</th><th>Item</th><th>Author</th><th>Description</th><th>Price</th><th>Group</th><th>Location</th><th>Stock</th><th>Order</th></tr>\n";
+
+while( $row = mysqli_fetch_array( $result, MYSQLI_ASSOC ) )
+{
+ echo "<tr>\n";
+ echo '<td>', $row[ 'item_code' ], '</td>';
+ if ($row[ 'item_image_loc' ] == "aa01-013.jpg") {
+    echo '<td>', '<img src="images\aa01-013.jpg" height = "59px"/>', '</td>';
+ }
+ if ($row[ 'item_image_loc' ] == "aa01-014.jpg") {
+    echo '<td>', '<img src="images\aa01-014.jpg" height = "59px"/>', '</td>';
+ }
+ if ($row[ 'item_image_loc' ] == "aa01-015.jpg") {
+    echo '<td>', '<img src="images\aa01-015.jpg" height = "59px"/>', '</td>';
+ }
+ if ($row[ 'item_image_loc' ] == "aa01-016.jpg") {
+    echo '<td>', '<img src="images\aa01-016.jpg" height = "59px"/>', '</td>';
+ }
+ if ($row[ 'item_image_loc' ] == "aa01-017.jpg") {
+    echo '<td>', '<img src="images\aa01-017.jpg" height = "59px"/>', '</td>';
+ }
+ if ($row[ 'item_image_loc' ] == "aa01-018.jpg") {
+    echo '<td>', '<img src="images\aa01-018.jpg" height = "59px"/>', '</td>';
+ }
+ echo
+ '<td>', $row[ 'item_name' ], '</td>',
+ '<td>', $row[ 'item_author' ], '</td>',
+ '<td>', $row[ 'item_description' ], '</td>',
+ '<td>', $row[ 'item_price' ], '</td>', "\n";
+
+ echo
+ '<td>', $row[ 'item_group' ], '</td>',
+ '<td>', $row[ 'item_stock_location' ], '</td>',
+ '<td>', $row[ 'item_stock_count' ], '</td>',
+ '<td>', $row[ 'item_order_count' ], '</td>', "\n" ;
+ echo "</tr>\n";
+echo '<td><a href="purchase.php?item_code=' .
+ $row[ 'item_code' ] .
+ '&item_price=' . $row[ 'item_price' ] . '" style="text-decoration:none;"><br>Buy</a></td>';
+ echo '<td><a href="review.php" style="text-decoration:none;"><br>Review</a></td>';
+ echo "</tr>\n";
+} 
+echo '</table>';
+mysqli_free_result( $result );
+mysqli_close( $link );

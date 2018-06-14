@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+
+<html lang = "en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Purchase</title>
+	<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: DodgerBlue;
+    clear: left;
+    text-align: center;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
+</head>
+
+
+<body>
+<div class="container">
+
+<header>
+   <h1>Homepage</h1>
+</header>
+
+<div class="navbar">
+    <a href="M:/apache24/htdocs/index.html">Home</a>
+	<a href="M:/apache24/htdocs/books.html">Books</a>
+	<a href="M:/apache24/htdocs/cd.html">CD's</a>
+	<a href="M:/apache24/htdocs/games.html">Games</a>
+	<a href="M:/apache24/htdocs/dvd.html">DVD's</a>
+	<a href="M:/apache24/htdocs/user-login.html">User Login</a>
+	<a href="M:/apache24/htdocs/manager-login.html">Manager Login</a>
+</div>
+
+<style>
+  /* The navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+	  justify-content: space-around; /* Spaces out links */
+	  display: flex; /* Spaces out links */
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 450px;
+}
+
+/* Change background when hovered over */
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+
+/* Main content */
+.main {
+    margin-top: 30px; /* Add a top margin to avoid content overlay */
+} 
+</style>
+
+<?php
+# Called from test.php when a 'purchase' is made
+# Reports back the item_code and item_price
+# These are passed to this script URL encoded
+$item_code = $_GET[ 'item_code' ];
+$item_price = $_GET[ 'item_price' ];
+echo "<p>Item Code = $item_code</p>\n";
+echo "<p>Item Price = $item_price</p>\n";
+echo "<p>We can now create an order or process in any way we
+choose.</p>\n";
+?>
+
+<footer>Copyright &copy; lw17894</footer>
+
+</body>
+</html>
