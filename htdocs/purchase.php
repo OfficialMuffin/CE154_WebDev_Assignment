@@ -205,7 +205,7 @@ if (mysqli_num_rows($result)==1){
 }
 ?>
 
-<form action ="purchase.php?item_code=<?php echo $item_code; ?>&item_price=<?php echo $item_price; ?>" method="POST">
+<form action ="purchase.php?item_code=<?php echo htmlentities($item_code, ENT_QUOTES); ?>&item_price=<?php echo htmlentities($item_price, ENT_QUOTES); ?>" method="POST">
 	<input type="text" name="promocode" size="40" maxlength="20" placeholder="Please enter promotional code here...">
 	<input type='submit' value='Add Promotion Code' name='submitcode'>
 </form>
