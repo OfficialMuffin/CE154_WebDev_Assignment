@@ -147,7 +147,7 @@ input[type="submit"] {
 <?php
 $item_code = $_GET[ 'item_code' ];
 $item_price = $_GET[ 'item_price' ];
-echo "<p>Item Code = $item_code</p>\n";
+echo "<p>Item Code = " . htmlentities($item_code, ENT_QUOTES) . "</p>\n";
 echo "<p>Item Price = $item_price</p>\n";
 
 #If button of submit button is pressed
